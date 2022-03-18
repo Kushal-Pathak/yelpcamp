@@ -4,7 +4,7 @@ if (process.env.NODE_ENV !== 'production') {
 
 const express = require('express')
 const app = express()
-const port = 3000
+
 const ejsMate = require('ejs-mate')
 const mongoose = require('mongoose')
 const ExpressError = require('./utils/ExpressError')
@@ -99,6 +99,7 @@ app.use((err, req, res, next) => {
     res.status(statusCode).render('error', { err })
 })
 
+const port = process.env.PORT || 3000
 app.listen(port, () => {
     console.log(`LISTENING ON PORT ${port}`)
 })
